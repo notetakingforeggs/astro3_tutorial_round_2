@@ -1,5 +1,13 @@
 ---
+const pageTitle = "About Me";
+const identity = {
+	firstName: "jonah",
+	country: "Scotland",
+	occupation: "Junior Dev",
+	hobbies: ["surfing", "reading", "handstands"]
 
+	const skills = ["Java", "Spring Boot", "Python", "Flask", "Astro"]
+}
 ---
 
 <html lang="en">
@@ -8,14 +16,14 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>[pageTitle]</title>
 	</head>
 	<body>
 <a href = "/"> Home</a>
 <a href = "/about"> About</a>
 <a href = "/blog"> Blog</a>
 
-		<h1>About me</h1>
+		<h1>[pageTitle]</h1>
         <h2> this is me getting familiar with writing static sites in astro...</h2>
         <p>I am working through the astro tutorial again as i somehow misplaced my first attempt, nd i figure it will do me good to have another shot to consolidat ethe syntax.</p>
 	</body>
