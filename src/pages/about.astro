@@ -5,9 +5,13 @@ const identity = {
 	country: "Scotland",
 	occupation: "Junior Dev",
 	hobbies: ["surfing", "reading", "handstands"]
+};
 
-	const skills = ["Java", "Spring Boot", "Python", "Flask", "Astro"]
-}
+	const skills = ["Java", "Spring Boot", "Python", "Flask", "Astro"];
+
+	const happy = true;
+	const finished = false;
+	const goal = 3;
 ---
 
 <html lang="en">
@@ -26,5 +30,20 @@ const identity = {
 		<h1>[pageTitle]</h1>
         <h2> this is me getting familiar with writing static sites in astro...</h2>
         <p>I am working through the astro tutorial again as i somehow misplaced my first attempt, nd i figure it will do me good to have another shot to consolidat ethe syntax.</p>
+	<p> Here are a few facts about me</p>
+	<li>My name is {identity.firstName}.</li>
+	<li>I live in {identity.country}.</li>
+	<li>My hobbies include {identity.hobbies[0]} and {identity.hobbies[1]}.</li>
+
+	<p> My skills include</p>
+	<ul>
+		<li>
+			{skills.map((skill => <li>{skill}</li>))}
+		</li>
+	</ul>
+	
+	{happy && <p> I am happy to be learning astro</p>}
+	{finished && <p>I finished this tutorial</p>}
+	{goal === 3 ? <p>My goal is to finish this in 3 days : <p> my goal is not three days</p>}
 	</body>
 </html>
