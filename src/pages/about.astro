@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css'
+
 const pageTitle = "About Me";
 const identity = {
 	firstName: "jonah",
@@ -8,6 +10,10 @@ const identity = {
 };
 
 	const skills = ["Java", "Spring Boot", "Python", "Flask", "Astro"];
+	const skillColor = "navy";
+	const fontWeight = "bold";
+	const textCase = "uppercase";
+
 
 	const happy = true;
 	const finished = false;
@@ -20,30 +26,40 @@ const identity = {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>[pageTitle]</title>
+		<title>{pageTitle}</title>
+		<style define:vars={{skillColor, fontWeight, textCase}}>
+			h1 {
+			  color: purple;
+			  font-size: 4rem;
+			}
+			.skill{
+				font-weight: var(--fontWeight);
+				color: var(--skillColor);
+				text-transform: var(--textCase);
+			}
+		  </style>
 	</head>
 	<body>
 <a href = "/"> Home</a>
 <a href = "/about"> About</a>
 <a href = "/blog"> Blog</a>
 
-		<h1>[pageTitle]</h1>
+		<h1>{pageTitle}</h1>
         <h2> this is me getting familiar with writing static sites in astro...</h2>
         <p>I am working through the astro tutorial again as i somehow misplaced my first attempt, nd i figure it will do me good to have another shot to consolidat ethe syntax.</p>
 	<p> Here are a few facts about me</p>
 	<li>My name is {identity.firstName}.</li>
 	<li>I live in {identity.country}.</li>
-	<li>My hobbies include {identity.hobbies[0]} and {identity.hobbies[1]}.</li>
+
+	{identity.hobbies.length >= 2 && <li>Two of my hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}</li>}
 
 	<p> My skills include</p>
 	<ul>
-		<li>
-			{skills.map((skill => <li>{skill}</li>))}
-		</li>
+			{skills.map((skill) => <li class = "skill">{skill}</li>)}		
 	</ul>
 	
 	{happy && <p> I am happy to be learning astro</p>}
 	{finished && <p>I finished this tutorial</p>}
-	{goal === 3 ? <p>My goal is to finish this in 3 days : <p> my goal is not three days</p>}
+	{goal === 3 ? <p>My goal is to finish this in 3 days</p> : <p> my goal is not three days</p>}
 	</body>
 </html>
