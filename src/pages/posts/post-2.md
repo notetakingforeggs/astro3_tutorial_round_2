@@ -1,9 +1,16 @@
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+author: your boy
+title: blog post two
+pubDate: ojdwf9832jroid
+---
+
 # This is my second blog post
 (written third)
 
-- i have been using markdown a bit recently
+- i have been using __markdown__ a _bit_ recently
 - writing:
-[ - ]  **github readmes.**
-[ - ] **notes in obsidian.**
+- [x]  **github readmes.**
+- [x] **notes in obsidian.**
 
 ### I cant really remember much more markdown syntax to chuck in here in this moment.

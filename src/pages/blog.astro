@@ -1,21 +1,9 @@
 ---
-import '../styles/global.css'
+import BaseLayout from "../layouts/BaseLayout.astro"
+const pageTitle = "Blog";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-<a href = "/"> Home</a>
-<a href = "/about"> About</a>
-<a href = "/blog"> Blog</a>
-
-		<h1> My blog</h1>
+	<BaseLayout pageTitle = {pageTitle}>
         <h2> this isa blog style page...</h2>
         <p>I am working through the astro tutorial again as i somehow misplaced my first attempt, nd i figure it will do me good to have another shot to consolidat ethe syntax.</p>
 		<ul>
@@ -23,5 +11,6 @@ import '../styles/global.css'
 			<li><a href="/posts/post-2">post 2</a></li>
 			<li><a href="/posts/post-3">post 3</a></li>
 		</ul>
-	</body>
+	</BaseLayout>
+		
 </html>
