@@ -3,6 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 author: your boy
 title: blog post two
 pubDate: ojdwf9832jroid
+tags: "astro"
 ---
 
 # This is my second blog post
