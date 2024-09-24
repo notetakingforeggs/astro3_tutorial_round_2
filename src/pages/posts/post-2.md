@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 author: your boy
 title: blog post two
-pubDate: ojdwf9832jroid
+pubDate: 1999-01-01
 tags: ["astro"]
 ---
 
