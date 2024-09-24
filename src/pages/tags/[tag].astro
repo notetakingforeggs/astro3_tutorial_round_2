@@ -6,6 +6,11 @@ export async function getStaticPaths() {
   const allPosts = await Astro.glob('../posts/*.md');
 
   const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat(2))];
+// spread operator puts iterable values into new iterable (array in this case)
+// similar to rest, which is used in arguemtns to combine a bunch of values into one iterable parameter
+//.flat flattens out nested arrays. default is one layer, takes int argument to choose how deep it will flatten by
+// infinity flattens entirely (or infinite?)
+
   console.log(uniqueTags);
 
   // Each key in the params object should match the name of the dynamic segment in the route file:
@@ -13,22 +18,22 @@ export async function getStaticPaths() {
 // If the file is [tag].astro, then you need a key called tag in the params object.
 // If the file was [category]/[post].astro, you'd need both category and post keys in the params object.
 
-  return [
-    {params: {tag: "astro"}, props: {posts: allPosts}},
-    {params: {tag: "successes"}, props: {posts: allPosts}},
-    {params: {tag: "community"}, props: {posts: allPosts}},
-    {params: {tag: "blogging"}, props: {posts: allPosts}},
-    {params: {tag: "setbacks"}, props: {posts: allPosts}},
-    {params: {tag: "learning in public"}, props: {posts: allPosts}}
-  ];
+
+      return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
+        return {
+          params: { tag },
+          props: { posts: filteredPosts},
+        };
+      });
+
 }
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
-const filteredPosts = posts.filter((post) => post.frontmatter.tags?.includes(tag));
 ---
 
 <BaseLayout pageTitle = {tag}>
   <p>Posts tagged with{tag}</p>
-  {filteredPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title}/>)}
+  {posts.map((post)=> <BlogPost url = {post.url} title = {post.frontmatter.title}/>)}
 </BaseLayout>
